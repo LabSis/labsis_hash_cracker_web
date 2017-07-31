@@ -17,8 +17,11 @@ try {
     $algoritmo = filter_input(INPUT_POST, "algoritmo");
 
     // Armo comando con parametros de entrada.
-    $comando = "java ...";
-    exec($comando);
+//    $comando = "java ...";
+
+    $objeto_datos = array("resultados" => array("1", "2", "3"));
+
+//    exec($comando);
     // Fin del procesamiento.
 } catch (Exception $ex) {
     $error = true;

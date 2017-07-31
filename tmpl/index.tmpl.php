@@ -9,6 +9,7 @@
         <script src="<?php echo $WEB_PATH; ?>js/lib/jquery/jquery.min.js" ></script>
         <script src="<?php echo $WEB_PATH; ?>css/lib/bootstrap/js/bootstrap.min.js" ></script>
         <link href="<?php echo $WEB_PATH; ?>css/index.css" rel="stylesheet"/>
+        <script src="<?php echo $WEB_PATH; ?>js/lib/validator-1.1.3.js" ></script>
         <script src="<?php echo $WEB_PATH; ?>js/index.js" ></script>
     </head>
     <body>
@@ -48,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" id="slcAlgoritmos">
-                            <option value="seleccione">
+                            <option value="-1">
                                 Selecciona el algoritmo
                             </option>
                             <option value="md5">
