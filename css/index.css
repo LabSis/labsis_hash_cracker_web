@@ -1,0 +1,11 @@
+#txtHash{
+    min-width: 700px;
+}
+.explicacion{
+    color:#888;
+    font-weight: lighter;
+    transition: color .2s;
+}
+.explicacion:hover{
+    color:#222;
+}
