@@ -9,6 +9,7 @@
         <script src="<?php echo $WEB_PATH; ?>js/lib/jquery/jquery.min.js" ></script>
         <script src="<?php echo $WEB_PATH; ?>css/lib/bootstrap/js/bootstrap.min.js" ></script>
         <link href="<?php echo $WEB_PATH; ?>css/index.css" rel="stylesheet"/>
+        <script src="<?php echo $WEB_PATH; ?>js/index.js" ></script>
     </head>
     <body>
         <main class="container">
@@ -17,11 +18,31 @@
                     <h1>
                         Hash Cracker
                     </h1>
-                    <p class="explicacion">
-                        Ingresa una clave hasheada en el campo de texto, selecciona el algoritmo de hash utilizado (o selecciona "Detectar automáticamente"), y presiona en "Buscar" para obtener la clave en texto plano.
-                    </p>
+                    <div class="explicacion">
+                        <p>
+                            ¿Cómo usarlo?
+                        </p>
+                        <ol>
+                            <li>
+                                Ingresa una clave hasheada en el campo de texto
+                            </li>
+                            <li>
+                                Selecciona el algoritmo de hash utilizado (o selecciona "Detectar automáticamente").
+                            </li>
+                            <li>
+                                Presiona el botón "Buscar" y espera unos seungos para obtener la clave en texto plano.
+                            </li>
+                        </ol>
+                        <div class="alert alert-info  alert-dismissible mas-info">
+                            <p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                                Las claves almacenadas tiene una longitud máxima de 12 caracteres. Si la clave que intentas buscar posee más caracteres, no será posible obtenerla.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <form class="form-inline">
+                <form class="form-inline" id='formulario'>
                     <div class="form-group">
                         <input type="text" class="form-control" id="txtHash" placeholder="Ingresa la clave hasheada aquí">
                     </div>
@@ -50,15 +71,29 @@
                             </option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-primary" id="btnBuscar">
+                    <button type="submit" class="btn btn-primary" id="btnBuscar">
                         Buscar
                     </button>
                 </form>
-                <div class="resultados">
-                    <table>
-                        <tr>
-                            
-                        </tr>
+                <div class="resultados hidden">
+                    <div class="alert alert-warning hidden" id='mensajeResultados'>
+                        No se han encontrado reusltados para el hash '';
+                    </div>
+                    <table class="table hidden">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Texto plano
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Resultado
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

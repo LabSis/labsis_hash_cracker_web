@@ -2,10 +2,21 @@
     min-width: 700px;
 }
 .explicacion{
-    color:#888;
+    color:#888!important;
     font-weight: lighter;
     transition: color .2s;
 }
 .explicacion:hover{
-    color:#222;
+    color:#222!important;
+}
+.mas-info{
+    padding:5px;
+    padding-right: 30px;
+    background-color:rgba(0,0,0,0.02);
+    border-color: rgba(0,0,0,0.04);
+    opacity: 0.9;
+    color:#777;
+}
+#formularios{
+    margin-bottom: 15px;
 }
