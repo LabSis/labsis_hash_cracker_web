@@ -41,6 +41,7 @@
                 if (data.algoritmo === "auto") {
                     try {
                         var algoritmoDetectado = detectarAlgoritmo(data.hash);
+                        console.log(algoritmoDetectado);
                         data.algoritmo = algoritmoDetectado;
                     } catch (exp) {
                         $("#resultados").removeClass("hidden");
@@ -133,12 +134,12 @@
             1: "md5",
             40: "sha1",
             56: "sha224",
-            56: "sha256",
+            56: "sha256",// selecciona el ultimo ante igualdad
             64: "sha384",
-            64: "sha512"
+            64: "sha512"// selecciona el ultimo ante igualdad
         };
         if (longitudesHashPorAlgoritmo[hash.length] !== undefined) {
-            return longitudesHashPorAlgoritmo[hash];
+            return longitudesHashPorAlgoritmo[hash.length];
         } else {
             throw "Algoritmo no reconocido";
         }
