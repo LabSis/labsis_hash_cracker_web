@@ -50,7 +50,10 @@
                     <div class="form-group">
                         <select class="form-control" id="slcAlgoritmos">
                             <option value="-1">
-                                Selecciona el algoritmo
+                                Seleccione algoritmo
+                            </option>
+                            <option value="auto">
+                                Detectar automáticamente
                             </option>
                             <option value="md5">
                                 MD5

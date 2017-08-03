@@ -1,6 +1,9 @@
 (function () {
     $(document).ready(function () {
 
+        $("#slcAlgoritmos").change(function () {
+            $("#mensajeResultados").addClass("hidden");
+        });
         var validator = ValidatorJS.createValidator({
             form: $("#formulario"),
             triggers: [ValidatorJS.VALIDATE_ON_FORM_SUBMIT, ValidatorJS.VALIDATE_ON_FIELD_BLUR],
@@ -30,10 +33,22 @@
             },
             validForm: function (args) {
                 args.event.preventDefault();
+                $("#mensajeResultados").addClass("hidden");
                 var data = {
                     hash: $("#txtHash").val().trim(),
-                    algoritmo: $("#slcAlgoritmos").val().trim(),
+                    algoritmo: $("#slcAlgoritmos").val().trim()
                 };
+                if (data.algoritmo === "auto") {
+                    try {
+                        var algoritmoDetectado = detectarAlgoritmo(data.hash);
+                        data.algoritmo = algoritmoDetectado;
+                    } catch (exp) {
+                        $("#resultados").removeClass("hidden");
+                        $("#tablaResultados").addClass("hidden");
+                        mostrarMensajeResultado(exp, "error");
+                        return;
+                    }
+                }
                 var hash = data.hash;
                 $.ajax({
                     url: getURL() + "src/cracker.php",
@@ -92,6 +107,8 @@
 
     function mostrarMensajeResultado(texto, tipo) {
         $("#mensajeResultados").removeClass("alert-warning");
+        $("#mensajeResultados").removeClass("alert-info");
+        $("#mensajeResultados").removeClass("alert-danger");
         $("#mensajeResultados").removeClass("alert-success");
         if (tipo === "exito") {
             $("#mensajeResultados").addClass("alert-success");
@@ -108,6 +125,23 @@
 
     function getURL() {
         return location.origin + "/labsis_hash_cracker_web/";
+    }
+
+    function detectarAlgoritmo(hash) {
+        // Basado en la tabla de: https://en.wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions
+        var longitudesHashPorAlgoritmo = {
+            1: "md5",
+            40: "sha1",
+            56: "sha224",
+            56: "sha256",
+            64: "sha384",
+            64: "sha512"
+        };
+        if (longitudesHashPorAlgoritmo[hash.length] !== undefined) {
+            return longitudesHashPorAlgoritmo[hash];
+        } else {
+            throw "Algoritmo no reconocido";
+        }
     }
 
 })();
