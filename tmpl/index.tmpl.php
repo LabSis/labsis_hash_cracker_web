@@ -76,11 +76,11 @@
                         Buscar
                     </button>
                 </form>
-                <div class="resultados hidden">
-                    <div class="alert alert-warning hidden" id='mensajeResultados'>
-                        No se han encontrado reusltados para el hash '';
+                <div class="hidden" id="resultados">
+                    <div class="alert hidden" id='mensajeResultados'>
+                        No se han encontrado resultado para el hash '';
                     </div>
-                    <table class="table hidden">
+                    <table class="table hidden" id="tablaResultados">
                         <thead>
                             <tr>
                                 <th>

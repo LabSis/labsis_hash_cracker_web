@@ -34,12 +34,37 @@
                     hash: $("#txtHash").val().trim(),
                     algoritmo: $("#slcAlgoritmos").val().trim(),
                 };
+                var hash = data.hash;
                 $.ajax({
                     url: getURL() + "src/cracker.php",
                     type: "post",
+                    dataType: "json",
                     data: data
                 }).done(function (respuesta) {
-                    console.log(respuesta);
+                    $("#resultados").removeClass("hidden");
+                    $("#tablaResultados").addClass("hidden");
+                    if (respuesta.estado === undefined) {
+                        mostrarMensajeResultado("Error al buscar hash '" + hash + "'.", "error");
+                    } else {
+                        if (respuesta.estado === "ok" && respuesta.datos !== undefined && respuesta.datos.resultados !== undefined) {
+                            if (respuesta.datos.resultados.length > 0) {
+                                mostrarMensajeResultado("Hash '" + hash + "' encontrado.", "exito");
+                                $("#tablaResultados tbody").empty();
+                                for (var i = 0; i < respuesta.datos.resultados.length; i++) {
+                                    var $tr = $('<tr></tr>');
+                                    var $td = $('<td></td>');
+                                    $td.text(respuesta.datos.resultados[i]);
+                                    $tr.append($td);
+                                    $("#tablaResultados tbody").append($tr);
+                                }
+                                $("#tablaResultados").removeClass("hidden");
+                            } else {
+                                mostrarMensajeResultado("Hash '" + hash + "' no encontrado.", "alerta");
+                            }
+                        } else {
+                            mostrarMensajeResultado("Error al buscar hash '" + hash + "'.", "error");
+                        }
+                    }
                 });
             },
             validValidation: function (args) {
@@ -64,8 +89,24 @@
         validator.addValidation($("#txtHash"), ValidatorJS.VALIDATION_TYPE_REQUIRED, {message: {idTipoValidacion: ValidatorJS.VALIDATION_TYPE_REQUIRED, texto: "El hash no puede estar vacío."}});
         validator.addValidation($("#slcAlgoritmos"), ValidatorJS.VALIDATION_TYPE_REQUIRED, {message: {idTipoValidacion: ValidatorJS.VALIDATION_TYPE_REQUIRED, texto: "El algoritmo no puede estar sin seleccionar."}});
     });
-    
-    function getURL(){
+
+    function mostrarMensajeResultado(texto, tipo) {
+        $("#mensajeResultados").removeClass("alert-warning");
+        $("#mensajeResultados").removeClass("alert-success");
+        if (tipo === "exito") {
+            $("#mensajeResultados").addClass("alert-success");
+        } else if (tipo === "info") {
+            $("#mensajeResultados").addClass("alert-info");
+        } else if (tipo === "alerta") {
+            $("#mensajeResultados").addClass("alert-warning");
+        } else {
+            $("#mensajeResultados").addClass("alert-danger");
+        }
+        $("#mensajeResultados").text(texto);
+        $("#mensajeResultados").removeClass("hidden");
+    }
+
+    function getURL() {
         return location.origin + "/labsis_hash_cracker_web/";
     }
 

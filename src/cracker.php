@@ -49,8 +49,21 @@ $url_recurso = "http://localhost/labsis_hash_cracker_web/src/mockup_respuesta_sh
 $hash = filter_input(INPUT_POST, "hash");
 $algoritmo = filter_input(INPUT_POST, "algoritmo");
 
-$respuesta = hacer_peticion($url_recurso, array("hash" => $hash, "algoritmo" => $algoritmo));
+$respuesta = array(
+    "estado" => ""
+);
 
+try {
+    $datos = hacer_peticion($url_recurso, array("hash" => $hash, "algoritmo" => $algoritmo));
+    $respuesta["estado"] = "ok";
+    $respuesta["datos"] = $datos;
+} catch (Exception $ex) {
+    $respuesta["estado"] = "error";
+    $respuesta["error"] = array(
+        "id" => $ex->getCode(),
+        "descripcion" => $ex->getMessage()
+    );
+}
 // Asumo que la respuesta ya viene en el formato esperado (el json acordado).
 //print_r($respuesta);
 echo json_encode($respuesta);
