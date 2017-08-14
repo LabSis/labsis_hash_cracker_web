@@ -58,19 +58,19 @@
                             <option value="MD5">
                                 MD5
                             </option>
-                            <option value="SHA-1">
+                            <option value="SHA1">
                                 SHA-1
                             </option>
-                            <option value="SHA-224">
+                            <option value="SHA224">
                                 SHA-224
                             </option>
-                            <option value="SHA-256">
+                            <option value="SHA256">
                                 SHA-256
                             </option>
-                            <option value="SHA-384">
+                            <option value="SHA384">
                                 SHA-384
                             </option>
-                            <option value="SHA-512">
+                            <option value="SHA512">
                                 SHA-512
                             </option>
                         </select>

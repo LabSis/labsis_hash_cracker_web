@@ -8,7 +8,7 @@ $objeto_error = array("id" => -1, "descripcion" => "");
 // Completar con los datos obtenidos de ejecutar el programa java.
 $objeto_datos = [];
 // Lista de algoritmos validos
-$lista_algoritmos = ["md5", "SHA-1", "SHA-224", "SHA-256", "SHA-384", "SHA-512"];
+$lista_algoritmos = ["md5", "SHA1", "SHA224", "SHA256", "SHA384", "SHA512"];
 // Ubicación del jar compilado
 $ubicacion_jar = "/var/www/GeneradorClaves/GeneradorClaves.jar";
 
@@ -33,23 +33,23 @@ function validarLargoHash($largo_hash_p, $algoritmo_p) {
                 return 0;
             break;
         case 40:
-            if ($algoritmo_p !== "SHA-1")
+            if ($algoritmo_p !== "SHA1")
                 return 0;
             break;
         case 56:
-            if ($algoritmo_p !== "SHA-224")
+            if ($algoritmo_p !== "SHA224")
                 return 0;
             break;
         case 64:
-            if ($algoritmo_p !== "SHA-256")
+            if ($algoritmo_p !== "SHA256")
                 return 0;
             break;
         case 96:
-            if ($algoritmo_p !== "SHA-384")
+            if ($algoritmo_p !== "SHA384")
                 return 0;
             break;
         case 128:
-            if ($algoritmo_p !== "SHA-512")
+            if ($algoritmo_p !== "SHA512")
                 return 0;
             break;
         default:

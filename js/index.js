@@ -132,11 +132,11 @@
         // Basado en la tabla de: https://en.wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions
         var longitudesHashPorAlgoritmo = {
             32: "MD5",
-            40: "SHA-1",
-            56: "SHA-224",
-            64: "SHA-256", // selecciona el ultimo ante igualdad
-            96: "SHA-384",
-            128: "SHA-512"// selecciona el ultimo ante igualdad
+            40: "SHA1",
+            56: "SHA224",
+            64: "SHA256", // selecciona el ultimo ante igualdad
+            96: "SHA384",
+            128: "SHA512"// selecciona el ultimo ante igualdad
         };
         if (longitudesHashPorAlgoritmo[hash.length] !== undefined) {
             return longitudesHashPorAlgoritmo[hash.length];
