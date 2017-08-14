@@ -131,12 +131,12 @@
     function detectarAlgoritmo(hash) {
         // Basado en la tabla de: https://en.wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions
         var longitudesHashPorAlgoritmo = {
-            1: "md5",
-            40: "sha1",
-            56: "sha224",
-            56: "sha256",// selecciona el ultimo ante igualdad
-            64: "sha384",
-            64: "sha512"// selecciona el ultimo ante igualdad
+            32: "MD5",
+            40: "SHA-1",
+            56: "SHA-224",
+            64: "SHA-256", // selecciona el ultimo ante igualdad
+            96: "SHA-384",
+            128: "SHA-512"// selecciona el ultimo ante igualdad
         };
         if (longitudesHashPorAlgoritmo[hash.length] !== undefined) {
             return longitudesHashPorAlgoritmo[hash.length];

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>
             LabSis - Hash cracker
         </title>
@@ -25,13 +25,13 @@
                         </p>
                         <ol>
                             <li>
-                                Ingresa una clave hasheada en el campo de texto
+                                Ingresa una clave hasheada en el campo de texto.
                             </li>
                             <li>
                                 Selecciona el algoritmo de hash utilizado (o selecciona "Detectar automáticamente").
                             </li>
                             <li>
-                                Presiona el botón "Buscar" y espera unos seungos para obtener la clave en texto plano.
+                                Presiona el botón "Buscar" y espera unos segundos para obtener la clave en texto plano.
                             </li>
                         </ol>
                         <div class="alert alert-info  alert-dismissible mas-info">
@@ -55,22 +55,22 @@
                             <option value="auto">
                                 Detectar automáticamente
                             </option>
-                            <option value="md5">
+                            <option value="MD5">
                                 MD5
                             </option>
-                            <option value="sha1">
+                            <option value="SHA-1">
                                 SHA-1
                             </option>
-                            <option value="sha224">
+                            <option value="SHA-224">
                                 SHA-224
                             </option>
-                            <option value="sha256">
+                            <option value="SHA-256">
                                 SHA-256
                             </option>
-                            <option value="sha384">
+                            <option value="SHA-384">
                                 SHA-384
                             </option>
-                            <option value="sha512">
+                            <option value="SHA-512">
                                 SHA-512
                             </option>
                         </select>
