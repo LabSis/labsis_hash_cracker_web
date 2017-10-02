@@ -100,6 +100,10 @@
                         </tbody>
                     </table>
                 </div>
+		
+                <div class="pull-right">
+	            <a href="https://github.com/LabSis/labsis_hash_cracker_web"> <img style="position:fixed; bottom: 0" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" width="100" height="100"></a>
+	    	</div>
             </div>
         </main>
     </body>
