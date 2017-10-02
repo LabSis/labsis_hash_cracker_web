@@ -1,4 +1,4 @@
-﻿# Hash Cracker
+# Hash Cracker
 
 Proyecto realizado en el Laboratorio de Sistemas, UTN FRC.
 
@@ -14,11 +14,5 @@ En este repositorio se almacena la interfaz provista por la aplicación web. Est
 
 También contiene el php que recibira la petición en el servidor que contenga la base de datos. Este php realiza las correspondientes validaciones.
 Se encuentra en [/api/shi.php](https://github.com/LabSis/labsis_hash_cracker_web/blob/master/api/shi.php).
-
-
-<<<<<<< HEAD
-=======
-<i>Hashes soportados por esta aplicación: MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512 </i>
->>>>>>> 15649737ae3849a670ec2835b9d3479e1344c6e6
 
 
